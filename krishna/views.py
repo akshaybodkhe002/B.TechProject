@@ -353,6 +353,6 @@ def all_bookings(request):
 def slots(request):
     print("->1")
     return render(request , "user/bookSlots.html")
-def addslots(request):
+def add_slots(request):
     print("->1")
     return render(request , "staff/addSlots.html")
