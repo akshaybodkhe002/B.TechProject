@@ -47,3 +47,20 @@ class Reservation(models.Model):
         return self.guest.username
 
 
+class Slots(models.Model):
+  
+    booking_date=models.DateField()
+    slot1=models.BooleanField()
+    slot2=models.BooleanField()
+    slot3=models.BooleanField()
+    slot4=models.BooleanField()
+    slot5=models.BooleanField()
+    slot6=models.BooleanField()
+    slot7=models.BooleanField()
+    slot8=models.BooleanField()
+    slot9=models.BooleanField()
+    slot10=models.BooleanField()
+    slot11=models.BooleanField()
+    slot12=models.BooleanField() 
+    def __str__(self):
+        return self.name
