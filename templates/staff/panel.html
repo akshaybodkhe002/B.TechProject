@@ -209,16 +209,17 @@
 
 <table class="table table-striped  ">
     <thead>
-        <th>Room Number</th>
-        <th>Type</th>
-        <th>Status</th>
-        <th>Price</th>
-        <th>Capacity</th>
-        <th>Size</th>
-        <th colspan="2">Actions</th>
+        <th>Station Id</th>
+        <th>Owner</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>city</th>
+        <th>State</th>
+        <th>Country</th>
+        <th colspan="2">action</th>
 
     </thead>
-    {% if rooms %} {% for each_room in rooms %}
+    <!-- {% if rooms %} {% for each_room in rooms %}
     <tr>
         <td>{{each_room.roomnumber}}</td>
         <td>{{each_room.get_room_type_display}}</td>
@@ -233,8 +234,26 @@
 
 
     </tr>
-    {% endfor %} {% endif %}
+    {% endfor %} {% endif %} -->
 
+
+    {% if rooms %} {% for each_station in rooms %}
+    <tr>
+        <td>{{each_station.S_id}}</td>
+        <td>{{each_station.Owner}}</td>
+        <td>{{each_station.Latitude}}</td>
+        <td>{{each_station.Longitude}}</td>
+        <td>{{each_station.City}}</td>
+        <td>{{each_station.State}}</td>
+        <td>{{each_station.Country}}</td>
+        <td colspan="2">
+            <a href="/staff/panel/edit-room?roomid={{each_room.id}}"><Button class="btn btn-danger">Select</Button></a>
+         
+        </td>
+
+
+    </tr>
+    {% endfor %} {% endif %}
 
 </table>
 <!---->
