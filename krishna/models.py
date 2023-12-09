@@ -46,4 +46,13 @@ class Reservation(models.Model):
     def __str__(self):
         return self.guest.username
 
+class Stations(models.Model):
+    S_id = models.IntegerField(primary_key=True)
+    Owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    Latitude = models.CharField(max_length=10, null=True, blank=True)
+    Longitude = models.CharField(max_length=10, null=True, blank=True)
+    City = models.CharField(max_length=10, null=True, blank=True)
+    State = models.CharField(max_length=10, null=True, blank=True)
+    Country = models.CharField(max_length=10, null=True, blank=True)
+
 
