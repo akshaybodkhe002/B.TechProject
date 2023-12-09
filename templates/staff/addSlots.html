@@ -101,47 +101,31 @@
                 <form action="/staff/panel/add-room/add" method="POST">
                     {% csrf_token %}
                     
+                    
+                    
                     <div class="form-group">
-                        <label for="email">Room Type:</label>
-                        <select class="form-control" name="roomtype" id="roomtype">
-                            
-                            <option value="1">Premium</option>
-                            <option value="2">Deluxe</option>
-                            <option value="3">Basic</option>
-                        </select>
+                        <label for="pwd">Date:</label>
+                        <input type="date" class="form-control " id="date" name="date">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Capacity:</label>
-                        <input type="number" class="form-control " id="capacity" name="capacity">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Price:</label>
-                        <input type="mumber" class="form-control " id="price" name="price">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Size:</label>
-                        <input type="number" class="form-control " id="size" name="size">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Status:</label>
-                        <select class="form-control" name="status" id="roomstatus">
-                            
-                            <option value="1">Available</option>
-                            <option value="2">Not Available</option>
-                            
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Location:</label>
-                        
-                        <select class="form-control" name="hotel" id="hotel">
-                            {% for each_location,eachid in location%}
-                            <option value={{eachid}}>{{each_location}}</option>
-                            {% endfor %}
-                            
-                            
-                        </select>
-                    </div>
+                        <label for="pwd">Select Slot:</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="Slot 1">Slot 1</option>
+                        <option value="Slot 2">Slot 2</option>
+                        <option value="Slot 3">Slot 3</option>
+                        <option value="Slot 4">Slot 4</option>
+                        <option value="Slot 5">Slot 5</option>
+                        <option value="Slot 6">Slot 6</option>
+                        <option value="Slot 7">Slot 7</option>
+                        <option value="Slot 8">Slot 8</option>
+                        <option value="Slot 9">Slot 9</option>
+                        <option value="Slot 10">Slot 10</option>
+                        <option value="Slot 11">Slot 11</option>
+                        <option value="Slot 12">Slot 12</option>
+                      </select>
+                      </div>
+                    
                     <button type="submit" class="btn btn-primary">Add Room</button>
                 </form>
             </div>
