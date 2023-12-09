@@ -39,8 +39,9 @@ urlpatterns = [
     path('staff/panel/add-new-room', views.add_new_room,name="addroom"),
     path('staff/panel/edit-room/edit', views.edit_room),
     path('staff/panel/view-room', views.view_room),
-
-    path('admin/', admin.site.urls),
     
+    path('admin/', admin.site.urls),
+    path('slots/', views.slots , name="slots"),
+    path('addslots/', views.addslots , name="addslots"),
 
 ]
