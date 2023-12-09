@@ -56,3 +56,20 @@ class Stations(models.Model):
     Country = models.CharField(max_length=10, null=True, blank=True)
 
 
+class Slots(models.Model):
+    S_id = models.ForeignKey(Stations, on_delete=models.CASCADE, default=None)
+    booking_date=models.DateField(null=True, blank=True)
+    slot1=models.BooleanField(default=False,null=True, blank=True)
+    slot2=models.BooleanField(default=False,null=True, blank=True)
+    slot3=models.BooleanField(default=False,null=True, blank=True)
+    slot4=models.BooleanField(default=False,null=True, blank=True)
+    slot5=models.BooleanField(default=False,null=True, blank=True)
+    slot6=models.BooleanField(default=False,null=True, blank=True)
+    slot7=models.BooleanField(default=False,null=True, blank=True)
+    slot8=models.BooleanField(default=False,null=True, blank=True)
+    slot9=models.BooleanField(default=False,null=True, blank=True)
+    slot10=models.BooleanField(default=False,null=True, blank=True)
+    slot11=models.BooleanField(default=False,null=True, blank=True)
+    slot12=models.BooleanField(default=False,null=True, blank=True) 
+    class Meta:
+        unique_together = (('S_id', 'booking_date'),)
