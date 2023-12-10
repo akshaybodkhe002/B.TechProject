@@ -12,6 +12,10 @@
 
     <!--Cdn links for bootstrap-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- Add these lines to your HTML head -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
     <link rel="stylesheet" href="{% static 'bootstrap\bootstrap.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,6 +29,35 @@
             text-decoration: none;
         }
     </style>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChykMQlbWKcQy-qixkVnXCrGVoy-vdlM4&callback=initMap" 
+     async defer></script>
+
+<!-- Specify the height for your map container -->
+<style>
+ #map {
+     height: 900px;
+ }
+</style>
+
+<!-- Your script to initialize the map -->
+<script>
+ function initMap() {
+     // Create a map centered at the Taj Mahal
+     var map = new google.maps.Map(document.getElementById('map'), {
+         center: {lat: 16.8496, lng: 74.6067},
+         zoom: 13
+     });
+
+     // Add a marker at the Taj Mahal
+     var marker = new google.maps.Marker({
+         position: {lat: 27.1751, lng: 78.0421},
+         map: map,
+         title: 'Taj Mahal'
+     });
+
+     // You can add more markers or customize as needed
+ }
+</script>
 </head>
 
 <body style="dbackground-image: url('https://source.unsplash.com/random');height: 100%;">
