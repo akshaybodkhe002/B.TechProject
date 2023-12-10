@@ -245,9 +245,22 @@ def add_new_room(request):
 
 #booking room page
 @login_required(login_url='/user')
-def book_room_page(request):
-    room = Rooms.objects.all().get(id=int(request.GET['roomid']))
-    return HttpResponse(render(request,'user/bookroom.html',{'room':room}))
+def book_room_page(request, id):
+    # room = Rooms.objects.all().get(id=int(request.GET['roomi4d']))
+    S_id = 1
+    date = "2023-12-10"
+    slot_instance = Slots.objects.get(S_id=S_id, booking_date=date)
+    try:
+        print(slot_instance)
+        if slot_instance is not None:
+            print("->2")
+            # Update the specified slot to True
+            setattr(slot_instance, f"slot{id}", False)
+            slot_instance.save()
+            print(f"Slot {id} for S_id {S_id} on {date} has been updated.")
+    except Exception as e:
+        print(e)
+    return HttpResponse(render(request,'user/bookroom.html'))
 
 #For booking the room
 @login_required(login_url='/user')
@@ -352,7 +365,17 @@ def all_bookings(request):
 
 def slots(request):
     print("->1")
-    return render(request , "user/bookSlots.html")
+    date = "2023-12-10"
+    # date = request.POST['date']
+    print("->2 ", date)
+    s_data = Slots.objects.filter(booking_date = date)
+    print("->3")
+    print(s_data)
+    s_data_list = list(s_data)
+    print(s_data_list)
+    response = render(request,"user/bookSlots.html",{"s_data":s_data})
+    return HttpResponse(response)
+
 def openstation(request, S_id):
     
     return render(request , "staff/addSlots.html",{"S_id": S_id})

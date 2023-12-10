@@ -9,11 +9,11 @@
                 {%load app_tags%}
                 <div class="form-group">
                     <label for="username">Hotel:</label>
-                    <input type="text" class="form-control " id="hotel" name="hotel" disabled value={{room.hotel.name}}>
+                    <input type="text" class="form-control " id="hotel" name="hotel" disabled value="Zayka">
                 </div>
                 <div class="form-group">
                     <label for="username">Location:</label>
-                    <input type="text" class="form-control " id="location" name="location" disabled value={{room.hotel.location}}>
+                    <input type="text" class="form-control " id="location" name="location" disabled value="Sangli">
                 </div>
                 <div class="form-group">
                     <label for="person">username:</label>
@@ -33,16 +33,16 @@
                 </div>
                 <div class="form-group">
                     <label for="username">Room Type:</label>
-                    <input type="text" class="form-control " id="roomtype" name="roomtype" disabled value={{room.get_room_type_display}}>
+                    <input type="text" class="form-control " id="roomtype" name="roomtype" disabled value="dulex">
                 </div>
                 <div class="form-group">
                     <label for="password2">Price:</label>
-                    <input type="number" class="form-control " id="price" placeholder="price " name="price" disabled value={{room.price}}>
+                    <input type="number" class="form-control " id="price" placeholder="price " name="price" disabled value= 19 >
                 </div>
 
 
                 <button type="submit" class="btn btn-primary">Book Now</button>
-                <input type="hidden" name="room_id" value={{room.id}}>
+                {% comment %} <input type="hidden" name="room_id" value={{room.id}}> {% endcomment %}
 
             </form>
         </div>

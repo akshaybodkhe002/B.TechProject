@@ -7,7 +7,7 @@
         background-color: red ;
     }
 </style>
-
+{% for i in s_data %}
 <div class="container">
     <div class="container">
         <div class="row" >
@@ -24,12 +24,16 @@
         <div class="row" style="margin-top:3em;">
             <div class="col-sm">
                 <div class="card">
-      <div class="card-body" color = "gray">
+      <div class="card-body">
         <h5 class="card-title">Slot 1</h5>
         <p class="card-text">Time: 10:00am - 11:00am</p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=1 %}" style="background-color: {% if i.slot1 %}green{% else %}red{% endif %}" class="btn book-btn">Book</a> {% endcomment %}
+        {% if i.slot1 %}
+        <a href="{% url 'bookroompage' id=1 %}" style="background-color: green" class="btn book-btn">Book</a>
+        {% else %}
+            <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+        {% endif %}
       </div>
     </div>
             </div>
@@ -39,8 +43,12 @@
         <h5 class="card-title">Slot 2</h5>
         <p class="card-text">Time: 11:00am - 12:00pm</p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=2 %}" style="background-color: {% if i.slot2 %}green{% else %}red{% endif %}" class="btn book-btn">Book</a> {% endcomment %}
+        {% if i.slot2 %}
+        <a href="{% url 'bookroompage' id=2 %}" style="background-color: green" class="btn book-btn">Book</a>
+      {% else %}
+          <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+      {% endif %}
       </div>
     </div>
             </div>
@@ -50,8 +58,12 @@
         <h5 class="card-title">Slot 3</h5>
         <p class="card-text">Time: 12:00pm - 01:00pm</p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn  book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=3 %}" style="background-color: {% if i.slot3 %}green{% else %}red{% endif %}" class="btn  book-btn">Book</a> {% endcomment %}
+        {% if i.slot3 %}
+        <a href="{% url 'bookroompage' id=3 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -61,8 +73,12 @@
         <h5 class="card-title">Slot 4</h5>
         <p class="card-text">Time: 01:00pm- 02:00pm</p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=4 %}" style="background-color: {% if i.slot4 %}green{% else %}red{% endif %}" class="btn book-btn">Book</a> {% endcomment %}
+        {% if i.slot4 %}
+        <a href="{% url 'bookroompage' id=4 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -74,8 +90,12 @@
         <h5 class="card-title">Slot 5</h5>
         <p class="card-text">Time: 02:00pm- 03:00pm </p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=5 %}" style="background-color: {% if i.slot5 %}green{% else %}red{% endif %}" class="btn book-btn">Book</a> {% endcomment %}
+        {% if i.slot5 %}
+        <a href="{% url 'bookroompage' id=5 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -85,8 +105,12 @@
         <h5 class="card-title">Slot 6</h5>
         <p class="card-text">Time: 03:00pm- 04:00pm </p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn  book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=6 %}" style="background-color: {% if i.slot6 %}green{% else %}red{% endif %}" class="btn  book-btn">Book</a> {% endcomment %}
+        {% if i.slot6 %}
+        <a href="{% url 'bookroompage' id=6 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -96,8 +120,12 @@
         <h5 class="card-title">Slot 7</h5>
         <p class="card-text">Time: 04:00pm- 05:00pm </p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn  book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=7 %}" style="background-color: {% if i.slot7 %}green{% else %}red{% endif %}" class="btn  book-btn">Book</a> {% endcomment %}
+        {% if i.slot7 %}
+        <a href="{% url 'bookroompage' id=7 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -107,8 +135,12 @@
         <h5 class="card-title">Slot 8</h5>
         <p class="card-text">Time: 05:00pm- 06:00pm </p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn  book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=8 %}" style="background-color: {% if i.slot8 %}green{% else %}red{% endif %}" class="btn  book-btn">Book</a> {% endcomment %}
+        {% if i.slot8 %}
+        <a href="{% url 'bookroompage' id=8 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -120,8 +152,12 @@
         <h5 class="card-title">Slot 9</h5>
         <p class="card-text">Time: 06:00pm- 07:00pm </p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn  book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=9 %}" style="background-color: {% if i.slot9 %}green{% else %}red{% endif %}" class="btn  book-btn">Book</a> {% endcomment %}
+        {% if i.slot9 %}
+        <a href="{% url 'bookroompage' id=9 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -131,8 +167,12 @@
         <h5 class="card-title">Slot 10</h5>
         <p class="card-text">Time: 07:00pm- 08:00pm </p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=10 %}" style="background-color: {% if i.slot10 %}green{% else %}red{% endif %}" class="btn book-btn">Book</a> {% endcomment %}
+        {% if i.slot10 %}
+        <a href="{% url 'bookroompage' id=10 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -142,8 +182,12 @@
         <h5 class="card-title">Slot 11</h5>
         <p class="card-text">Time: 08:00pm- 09:00pm </p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn  book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=11 %}" style="background-color: {% if i.slot11 %}green{% else %}red{% endif %}" class="btn  book-btn">Book</a> {% endcomment %}
+        {% if i.slot11 %}
+        <a href="{% url 'bookroompage' id=11 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -153,8 +197,12 @@
         <h5 class="card-title">Slot 12</h5>
         <p class="card-text">Time: 09:00pm- 10:00pm </p>
         {% comment %} <a href="#" class="btn btn-primary">Book</a> {% endcomment %}
-        <a href="#" class="btn  book-btn">Book</a>
-
+        {% comment %} <a href="{% url 'bookroompage' id=12 %}" style="background-color: {% if i.slot12 %}green{% else %}red{% endif %}" class="btn  book-btn">Book</a> {% endcomment %}
+        {% if i.slot12 %}
+        <a href="{% url 'bookroompage' id=12 %}" style="background-color: green" class="btn book-btn">Book</a>
+    {% else %}
+        <button class="btn book-btn" style="background-color: red;" disabled>Not Available</button>
+    {% endif %}
       </div>
     </div>
             </div>
@@ -164,6 +212,7 @@
     <div>
 
     </div>
+  
      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script>
@@ -174,4 +223,6 @@
         });
     </script>
 </div>
+{% endfor %}
+
 {% endblock body %}
