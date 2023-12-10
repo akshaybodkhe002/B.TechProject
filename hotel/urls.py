@@ -45,6 +45,8 @@ urlpatterns = [
     
     path('admin/', admin.site.urls),
     path('slots/', views.slots , name="slots"),
+    path('add_slots/', views.slots_dashboard , name="slots_dashboard"),
+
    
 
 ]

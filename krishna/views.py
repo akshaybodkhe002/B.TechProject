@@ -397,6 +397,14 @@ def add_slot(request, S_id):
     return render(request, "staff/addSlots.html")
 
 def slots_dashboard(request):
-    date = request.POST['date']
+    print("->1")
+    date = "2023-12-10"
+    # date = request.POST['date']
+    print("->2 ", date)
     s_data = Slots.objects.filter(booking_date = date)
-    return render(request, "staff/addSlots.html", {"s_data": s_data})
+    print("->3")
+    print(s_data)
+    s_data_list = list(s_data)
+    print(s_data_list)
+    response = render(request,"staff/addSlots.html",{"s_data":s_data})
+    return HttpResponse(response)
