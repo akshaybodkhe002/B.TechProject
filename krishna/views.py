@@ -172,7 +172,8 @@ def panel(request):
     if request.user.is_staff == False:
         return HttpResponse('Access Denied')
     
-    rooms = Rooms.objects.all()
+    rooms = Stations.objects.all()
+    stations=Stations.objects.all()
     total_rooms = len(rooms)
     available_rooms = len(Rooms.objects.all().filter(status='1'))
     unavailable_rooms = len(Rooms.objects.all().filter(status='2'))
@@ -349,4 +350,30 @@ def all_bookings(request):
     
 
 
-        
+def slots(request):
+    print("->1")
+    return render(request , "user/bookSlots.html")
+def openstation(request, S_id):
+    # print("->1")
+    # print(S_id)
+    # content = {"data" : S_id}
+    return render(request , "staff/addSlots.html",{"S_id": S_id})
+
+def add_slot(request, S_id):
+    print("_1>")
+    try:
+        date = request.POST['date']
+        slot_number = request.POST['slot']  # Assuming slot is a number, adjust accordingly
+        # slot_number
+        # Retrieve the Slots instance based on S_id and booking_date
+        slot_instance = Slots.objects.get(S_id=S_id, booking_date=date)
+
+        # Update the specified slot to True
+        setattr(slot_instance, f"slot{slot_number}", True)
+        slot_instance.save()
+        print(f"Slot {slot_number} for S_id {S_id} on {date} has been updated.")
+
+    # print(en)
+    except Exception as e:
+        print(e)
+    return render(request, "staff/addSlots.html")

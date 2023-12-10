@@ -209,16 +209,17 @@
 
 <table class="table table-striped  ">
     <thead>
-        <th>Room Number</th>
-        <th>Type</th>
-        <th>Status</th>
-        <th>Price</th>
-        <th>Capacity</th>
-        <th>Size</th>
-        <th colspan="2">Actions</th>
+        <th>Station Id</th>
+        <th>Owner</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>city</th>
+        <th>State</th>
+        <th>Country</th>
+        <th colspan="2">action</th>
 
     </thead>
-    {% if rooms %} {% for each_room in rooms %}
+    <!-- {% if rooms %} {% for each_room in rooms %}
     <tr>
         <td>{{each_room.roomnumber}}</td>
         <td>{{each_room.get_room_type_display}}</td>
@@ -233,8 +234,26 @@
 
 
     </tr>
-    {% endfor %} {% endif %}
+    {% endfor %} {% endif %} -->
 
+
+    {% if rooms %} {% for each_station in rooms %}
+    <tr>
+        <td>{{each_station.S_id}}</td>
+        <td>{{each_station.Owner}}</td>
+        <td>{{each_station.Latitude}}</td>
+        <td>{{each_station.Longitude}}</td>
+        <td>{{each_station.City}}</td>
+        <td>{{each_station.State}}</td>
+        <td>{{each_station.Country}}</td>
+        <td colspan="2">
+            <a href="/staff/panel/openstation/{{each_station.S_id}}"><Button class="btn btn-danger">Select</Button></a>
+         
+        </td>
+
+
+    </tr>
+    {% endfor %} {% endif %}
 
 </table>
 <!---->
@@ -304,7 +323,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Add New Room</h4>
+                <h4 class="modal-title">Add New Station</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -319,47 +338,31 @@
                                 {% csrf_token %}
 
                                 <div class="form-group">
-                                    <label for="email">Room Type:</label>
-                                    <select class="form-control" name="roomtype" id="roomtype">
-                                        
-                                        <option value="1">Premium</option>
-                                        <option value="2">Deluxe</option>
-                                        <option value="3">Basic</option>
-                                    </select>
+                                    <label for="pwd">Owner:</label>
+                                    <input type="text" class="form-control " id="Owner" name="Owner">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Capacity:</label>
-                                    <input type="number" class="form-control " id="capacity" name="capacity">
+                                    <label for="pwd">Latitude:</label>
+                                    <input type="text" class="form-control " id="Latitude" name="Latitude">
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Price:</label>
                                     <input type="number" class="form-control " id="price" name="price">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Size:</label>
-                                    <input type="number" class="form-control " id="size" name="size">
+                                    <label for="pwd">City:</label>
+                                    <input type="text" class="form-control " id="City" name="City">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Status:</label>
-                                    <select class="form-control" name="status" id="roomstatus">
-                                        
-                                        <option value="1">Available</option>
-                                        <option value="2">Not Available</option>
-                                        
-                                    </select>
+                                    <label for="pwd">State:</label>
+                                    <input type="text" class="form-control " id="State" name="State">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Location:</label>
-
-                                    <select class="form-control" name="hotel" id="hotel">
-                                        {% for each_location,eachid in location%}
-                                        <option value={{eachid}}>{{each_location}}</option>
-                                        {% endfor %}
-                                        
-                                        
-                                    </select>
+                                    <label for="pwd">Country:</label>
+                                    <input type="text" class="form-control " id="Country" name="Country">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Add Room</button>
+                                
+                                <button type="submit" class="btn btn-primary">Add Station</button>
                             </form>
                         </div>
                     </div>

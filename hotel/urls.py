@@ -36,11 +36,15 @@ urlpatterns = [
     
     path('staff/panel/add-new-location', views.add_new_location,name="addnewlocation"),
     path('staff/panel/edit-room', views.edit_room),
+    path('staff/panel/openstation/<int:S_id>', views.openstation), # to open station
+    path('staff/panel/add-slots/<int:S_id>', views.add_slot), # to add slot
+
     path('staff/panel/add-new-room', views.add_new_room,name="addroom"),
     path('staff/panel/edit-room/edit', views.edit_room),
     path('staff/panel/view-room', views.view_room),
-
-    path('admin/', admin.site.urls),
     
+    path('admin/', admin.site.urls),
+    path('slots/', views.slots , name="slots"),
+   
 
 ]
