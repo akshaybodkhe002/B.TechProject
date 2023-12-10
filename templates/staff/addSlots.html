@@ -134,6 +134,30 @@
             print(en)
         {% endfor %}
     </div>
+    {% comment %}  {% endcomment %}
+    <div>
+       
+    {% if s_data %} 
+    {% for each_station in s_data %}
+    <tr>
+        <td>{{each_station.S_id}}</td>
+        <td>{{each_station.slot1}}</td>
+        {% comment %} <td>{{each_station.Owner}}</td>
+        <td>{{each_station.Latitude}}</td>
+        <td>{{each_station.Longitude}}</td>
+        <td>{{each_station.City}}</td>
+        <td>{{each_station.State}}</td>
+        <td>{{each_station.Country}}</td>
+        <td colspan="2">
+            <a href="/staff/panel/openstation/{{each_station.S_id}}"><Button class="btn btn-danger">Select</Button></a>
+         
+        </td> {% endcomment %}
+
+
+    </tr>
+    {% endfor %} {% endif %}
+
+    </div>
 {% endblock body %}
    
 
