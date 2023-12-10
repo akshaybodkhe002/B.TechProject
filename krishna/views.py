@@ -429,3 +429,5 @@ def slots_dashboard(request):
     print(s_data_list)
     response = render(request,"staff/addSlots.html",{"s_data":s_data})
     return HttpResponse(response)
+
+
