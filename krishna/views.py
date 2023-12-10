@@ -361,19 +361,42 @@ def openstation(request, S_id):
 
 def add_slot(request, S_id):
     print("_1>")
-    try:
+    slot_data = Slots.objects.all()
+    if request.method == "POST":
         date = request.POST['date']
         slot_number = request.POST['slot']  # Assuming slot is a number, adjust accordingly
-        # slot_number
-        # Retrieve the Slots instance based on S_id and booking_date
-        slot_instance = Slots.objects.get(S_id=S_id, booking_date=date)
+        try:
+            # # slot_number
+            # # Retrieve the Slots instance based on S_id and booking_date
+            slot_instance = Slots.objects.get(S_id=S_id, booking_date=date)
+            print(slot_instance)
+            if slot_instance is not None:
+                print("->2")
+            # Update the specified slot to True
+                setattr(slot_instance, f"slot{slot_number}", True)
+                slot_instance.save()
+                print(f"Slot {slot_number} for S_id {S_id} on {date} has been updated.")
+            else:
+                print("_3>")
+                new_slot = Slots()
+                new_slot.S_id = S_id
+                new_slot.booking_date = request.POST['date']
+                new_slot.save()
 
-        # Update the specified slot to True
-        setattr(slot_instance, f"slot{slot_number}", True)
-        slot_instance.save()
-        print(f"Slot {slot_number} for S_id {S_id} on {date} has been updated.")
-
-    # print(en)
-    except Exception as e:
-        print(e)
+        # print(en)
+        except Exception as e:
+            print("_4>")
+            new_slot = Slots()
+            print("->5")
+            print(new_slot)
+            new_slot.S_id = Stations.S_id
+            print("->6")
+            new_slot.booking_date = request.POST['date']
+            new_slot.save()
+            print(e)
     return render(request, "staff/addSlots.html")
+
+def slots_dashboard(request):
+    date = request.POST['date']
+    s_data = Slots.objects.filter(booking_date = date)
+    return render(request, "staff/addSlots.html", {"s_data": s_data})
