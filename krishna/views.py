@@ -354,9 +354,7 @@ def slots(request):
     print("->1")
     return render(request , "user/bookSlots.html")
 def openstation(request, S_id):
-    # print("->1")
-    # print(S_id)
-    # content = {"data" : S_id}
+    
     return render(request , "staff/addSlots.html",{"S_id": S_id})
 
 def add_slot(request, S_id):
