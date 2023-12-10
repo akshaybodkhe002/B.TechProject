@@ -48,7 +48,7 @@ class Reservation(models.Model):
 
 class Stations(models.Model):
     S_id = models.IntegerField(primary_key=True)
-    Owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    Owner = models.CharField(max_length=10, null=True, blank=True)
     Latitude = models.CharField(max_length=10, null=True, blank=True)
     Longitude = models.CharField(max_length=10, null=True, blank=True)
     City = models.CharField(max_length=10, null=True, blank=True)

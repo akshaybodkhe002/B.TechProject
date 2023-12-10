@@ -202,7 +202,7 @@
 
 <h2 class="text-center pb-2">Rooms Details</h2>
 
-<Button class="btn-group btn-primary" data-toggle="modal" data-target="#newroom">Add New Room</Button>
+<Button class="btn-group btn-primary" data-toggle="modal" data-target="#newroom">Add New Station</Button>
 
 
 <Button class="btn-group btn-primary " data-toggle="modal" data-target="#newlocation">Add New Location</Button>
@@ -297,7 +297,7 @@
 
 <!--Modal for Add New Room starts from here-->
 
-<!-- The Modal -->
+{% comment %} <!-- The Modal -->
 <div class="modal" id="newroom">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -333,7 +333,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Price:</label>
-                                    <input type="mumber" class="form-control " id="price" name="price">
+                                    <input type="number" class="form-control " id="price" name="price">
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Size:</label>
@@ -371,7 +371,73 @@
         </div>
     </div>
 </div>
+<!--Modal for Add New Room Ends here--> {% endcomment %}
+
+<!-- The Modal -->
+<div class="modal" id="newroom">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add New Station</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col mx-auto">
+
+                            <form action="/staff/panel/add-new-room" method="POST">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                    <label for="pwd">Station Id:</label>
+                                    <input type="number" class="form-control " id="S_id" name="S_id">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Owner:</label>
+                                    <input type="text" class="form-control " id="Owner" name="Owner">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Latitude:</label>
+                                    <input type="text" class="form-control " id="Latitude" name="Latitude">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Longitude:</label>
+                                    <input type="text" class="form-control " id="Longitude" name="Longitude">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">City:</label>
+                                    <input type="text" class="form-control " id="City" name="City">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">State:</label>
+                                    <input type="text" class="form-control " id="State" name="State">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Country:</label>
+                                    <input type="text" class="form-control " id="Country" name="Country">
+                                </div>
+                               
+                                
+                                <button type="submit" class="btn btn-primary">Add Station</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
 <!--Modal for Add New Room Ends here-->
+
 
 {% endblock body %} {% block js %}
 <!-- jquery for rooms stats  starts here-->

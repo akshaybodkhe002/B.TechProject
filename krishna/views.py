@@ -1,6 +1,6 @@
 from django.shortcuts import render ,redirect
 from django.http import HttpResponse , HttpResponseRedirect
-from .models import Hotels,Rooms,Reservation
+from .models import Hotels,Rooms,Reservation, Stations, Slots
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
@@ -213,24 +213,29 @@ def edit_room(request):
 #for adding room
 @login_required(login_url='/staff')
 def add_new_room(request):
+    print("->1")
     if request.user.is_staff == False:
         return HttpResponse('Access Denied')
     if request.method == "POST":
-        total_rooms = len(Rooms.objects.all())
-        new_room = Rooms()
-        hotel = Hotels.objects.all().get(id = int(request.POST['hotel']))
-        print(f"id={hotel.id}")
-        print(f"name={hotel.name}")
+        print('->2')
+        total_rooms = len(Stations.objects.all())
+        print('->3')
+        new_room = Stations()
+        # hotel = Hotels.objects.all().get(id = int(request.POST['hotel']))
+        # print(f"id={hotel.id}")
+        # print(f"name={hotel.name}")
 
+        print(total_rooms)
+        new_room.S_id = total_rooms + 1
+        print('->4')
+        new_room.Owner  = request.POST['Owner']
+        print('->5')
+        new_room.Latitude   = (request.POST['Latitude'])
+        new_room.Longitude       = (request.POST['Longitude'])
+        new_room.City   = (request.POST['City'])
+        new_room.State      = (request.POST['State'])
+        new_room.Country     = request.POST['Country']
 
-        new_room.roomnumber = total_rooms + 1
-        new_room.room_type  = request.POST['roomtype']
-        new_room.capacity   = int(request.POST['capacity'])
-        new_room.size       = int(request.POST['size'])
-        new_room.capacity   = int(request.POST['capacity'])
-        new_room.hotel      = hotel
-        new_room.status     = request.POST['status']
-        new_room.price      = request.POST['price']
 
         new_room.save()
         messages.success(request,"New Room Added Successfully")
